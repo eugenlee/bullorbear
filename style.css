@@ -1,0 +1,46 @@
+body {
+    background-color: #000;
+}
+#first {
+    background-color: #222;
+    margin-top: 10%;
+    border-radius: 15px;
+    padding: 30px;
+}
+.centered {
+    margin: 0 auto;
+}
+#main_title {
+    text-align: center;
+    color: #BCCC89;
+}
+#caption {
+    color: #BCCC89;
+    text-align: center;
+}
+* {
+    box-sizing: border-box;
+}
+#intro {
+    color: #666;
+    text-align: center;
+}
+#results-container {
+    display: flex;
+    flex-direction: column;
+}
+.user-card {
+    text-decoration: none;
+    padding: 5px;
+    border: solid 1px #BCCC89;
+    margin: 5px auto;
+}
+a:link {
+    color: white;
+}
+a:visited {
+    color: #aaa;
+}
+a:hover {
+    color: cornflowerblue;
+}

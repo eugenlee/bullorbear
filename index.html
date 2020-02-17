@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WSB Predictor</title>
+        <link rel="stylesheet" type=text/css media="screen" href="style.css">
+        <script src=script.js defer></script>
+    </head>
+
+    <body>
+
+        <div class= "container-fluid">
+            <div class="col-5 col-md-5 col-sm-12 centered">
+                <div id="first">
+                    <div class="col">
+                        <span id="main_title">
+                            <h1>Bullish or Bearish?</h1>
+                        </span>
+                        <span id="caption">
+                            <p>Using Reddit's API, app will find Bullish or Bearish comments in the Daily Discussions of 
+                                <a href="https://www.reddit.com/r/wallstreetbets/">r/wallstreetbets</a> </p>
+                        </span>
+                        <span id="intro">
+                            <p>Please wait ~5 seconds for the prediction!</p>
+                        </span>
+                    </div>
+
+                    <form class="col-12" id="search">
+                        <div class="form-row justify-content-center">
+                            <div class="mt-4 col-sm-6 col-md-4 col-lg-6">
+                                <input type="text" id="subreddit" class="form-control" placeholder = "Enter: Month Day, Year">
+                            </div>
+                            <div class="col mt-4 col-sm-auto">
+                                <button type="submit" class="btn btn-primary">Rank</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>  
+            </div>
+            
+            <div id="results-container">
+            </div>
+        </div>
+
+    </body>
+</html>
