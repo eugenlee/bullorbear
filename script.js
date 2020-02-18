@@ -3,50 +3,68 @@ const maxPostsToFetch = 500;
 const maxRequests = maxPostsToFetch/postsPerRequest;
 
 const responses = [];
+const threads = [];
+var pos = 0;
+var neg = 0;
+
+var rdate;
+const bull = ["call", "buy","print"];
+const bear = ["put", "sell","short"];
 
 const handleSubmit = e => {
     e.preventDefault();
-    const subreddit = document.getElementById('subreddit').value;
-    fetchPosts(subreddit);
+    const subdate = document.getElementById('subdate').value;
+    if (subdate.length == 0) alert('Please enter a date.')
+    rdate = subdate;
+    fetchPosts(subdate);
 }
 
-const fetchPosts = async (subreddit, afterParam) => {
-    const response = await fetch(`https://www.reddit.com/r/${subreddit}.json?limit=${postsPerRequest}
+const fetchPosts = async (subdate, afterParam) => {
+    const response = await fetch(`https://www.reddit.com/r/wallstreetbets.json?limit=${postsPerRequest}
     ${afterParam ? '&after=' + afterParam : ''}`)
 
     const responseJSON = await response.json();
     responses.push(responseJSON);
 
     if (responseJSON.data.after && responses.length < maxRequests) {
-        fetchPosts(subreddit, responseJSON.data.after);
+        fetchPosts(subdate, responseJSON.data.after);
         return;
     }
-    parseResults(responses);
+    comments(responses);
 }
 
-const parseResults = response => {
+const comments = async response => {
     const allPosts = [];
+    const allComments = [];
+    var theUrl;
 
     responses.forEach(response => {
         allPosts.push(...response.data.children);
     })
 
-    statsByUser = {};
-    allPosts.forEach(({ data: { author, score }}) => {
-        statsByUser[author] = !statsByUser[author] ? 
-        {postCount: 1, score} : 
-        {
-            postCount: statsByUser[author].postCount + 1,
-            score: statsByUser[author].score + score
+    allPosts.forEach(({ data: { title, url }}) => {
+        if (title.includes(`Daily Discussion Thread - ${rdate}`)) {
+            theUrl = `${url}.json?limit=${postsPerRequest}`;
         }
     })
 
-    const userList = Object.keys(statsByUser).map(username => ({
-        username, score: statsByUser[username].score, postCount: statsByUser[username].postCount
-    }))
+    const thread = await fetch(theUrl);
+    const threadJSON = await thread.json();
+    threads.push(threadJSON);
 
-    const sortedList = userList.sort((userA, userB) => userB.score - userA.score);
-    displayRankings(sortedList);
+    threads.forEach(thread => {
+        allComments.push(...thread['1'].data.children);
+    })
+
+    allComments.forEach(({ data: {body} }) => {
+        if (body != undefined) {
+            var s = body.toLowerCase();
+            for (var i = 0; i<bull.length; i++) {
+                if (s.includes(bull[i])) pos++;
+                else if (s.includes(bear[i])) neg++;
+            }
+        }
+    })
 }
 
 const displayRankings = sortedList => {
