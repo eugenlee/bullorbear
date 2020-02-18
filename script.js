@@ -65,18 +65,14 @@ const comments = async response => {
             }
         }
     })
+    var sum = pos/(pos+neg) * 100;
+    if (sum >= 50) alert("You're bullish: " + sum);
+    else ("You're bearish: " + sum);
 }
 
-const displayRankings = sortedList => {
-    const container = document.getElementById('results-container');
-    sortedList.forEach(({username, score, postCount}, i) => {
-        rank = i + 1;
-        const userCard = document.createElement('a');
-        userCard.href = `https://www.reddit.com/user/${username}`;
-        userCard.classList.add('user-card');
-        userCard.innerText = `${rank}. ${username} - ${postCount} post(s) - ${score} point(s)`;
-        container.appendChild(userCard);
-    })
-}
+// parse more comments
+// next up fix the pos + neg so that it resets and doesn't keep adding to previous value
+// jquery animation
+
 const subredditSelectForm = document.getElementById('search');
 subredditSelectForm.addEventListener('submit', handleSubmit);
