@@ -2,10 +2,8 @@ const postsPerRequest = 100;
 const maxPostsToFetch = 500;
 const maxRequests = maxPostsToFetch/postsPerRequest;
 
-const responses = [];
-const threads = [];
-var pos = 0;
-var neg = 0;
+var responses = [];
+var threads = [];
 
 var rdate;
 const bull = ["call", "buy","print"];
@@ -41,12 +39,14 @@ const comments = async response => {
     responses.forEach(response => {
         allPosts.push(...response.data.children);
     })
-
+    responses = [];
     allPosts.forEach(({ data: { title, url }}) => {
         if (title.includes(`Daily Discussion Thread - ${rdate}`)) {
             theUrl = `${url}.json?limit=${postsPerRequest}`;
         }
     })
+
+    if (theUrl == undefined) alert('Date too far, please enter a closer market day');
 
     const thread = await fetch(theUrl);
     const threadJSON = await thread.json();
@@ -55,8 +55,12 @@ const comments = async response => {
     threads.forEach(thread => {
         allComments.push(...thread['1'].data.children);
     })
+    threads = [];
+    var pos = 0;
+    var neg = 0;
 
     allComments.forEach(({ data: {body} }) => {
+        console.log(body);
         if (body != undefined) {
             var s = body.toLowerCase();
             for (var i = 0; i<bull.length; i++) {
@@ -71,7 +75,6 @@ const comments = async response => {
 }
 
 // parse more comments
-// next up fix the pos + neg so that it resets and doesn't keep adding to previous value
 // jquery animation
 
 const subredditSelectForm = document.getElementById('search');
