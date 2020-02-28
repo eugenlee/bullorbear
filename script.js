@@ -40,8 +40,9 @@ const comments = async response => {
         allPosts.push(...response.data.children);
     })
     responses = [];
+    var type = document.getElementById('drop').value;
     allPosts.forEach(({ data: { title, url }}) => {
-        if (title.includes(`Daily Discussion Thread - ${rdate}`)) {
+        if (title.includes(`${type} ${rdate}`)) {
             theUrl = `${url}.json?limit=500`;
         }
     })

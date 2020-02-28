@@ -34,15 +34,23 @@
                             <h1>Bullish or Bearish?</h1>
                         </span>
                         <span id="caption">
-                            <p>Using Reddit's API, app will find Bullish ratio in the Daily Discussions of 
+                            <p>Using Reddit, app will find Bullish ratio in the Daily Discussions or Moves Tomorrow threads of 
                                 <a href="https://www.reddit.com/r/wallstreetbets/">r/wallstreetbets</a> </p>
                         </span>
                         <span id="intro">
-                            <p>Enter a market day within last one or two days, Format: Month Day, Year - e.g. February 17, 2020. Please wait ~5 seconds for the prediction!</p>
+                            <p>Enter today or yesterday's market day, Format: Month Day, Year - e.g. February 17, 2020. Please wait ~5 seconds for the prediction!</p>
                         </span>
                     </div>
 
                     <form class="col-12" id="search">
+
+                        <div class="form-row justify-content-center">
+                            <select id="drop" name="drop">
+                                <option value="Daily Discussion Thread -">Daily Discussion Thread</option>
+                                <option value="What Are Your Moves Tomorrow,">What Are Your Moves Tomorrow</option>
+                            </select>
+                        </div>
+
                         <div class="form-row justify-content-center">
                             <div class="mt-4 col-sm-6 col-md-4 col-lg-6">
                                 <input type="text" id="subdate" class="form-control" placeholder = "Enter: Month Day, Year">
