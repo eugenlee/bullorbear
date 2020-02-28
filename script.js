@@ -6,8 +6,8 @@ var responses = [];
 var threads = [];
 
 var rdate;
-const bull = ["call", "buy","print"];
-const bear = ["put", "sell","short"];
+const bull = ["call","buy","print","pump","bull"];
+const bear = ["put","sell","short","shit","bear"];
 
 const handleSubmit = e => {
     e.preventDefault();
@@ -42,7 +42,7 @@ const comments = async response => {
     responses = [];
     allPosts.forEach(({ data: { title, url }}) => {
         if (title.includes(`Daily Discussion Thread - ${rdate}`)) {
-            theUrl = `${url}.json?limit=${postsPerRequest}`;
+            theUrl = `${url}.json?limit=500`;
         }
     })
 
@@ -58,9 +58,9 @@ const comments = async response => {
     threads = [];
     var pos = 0;
     var neg = 0;
-
-    allComments.forEach(({ data: {body} }) => {
-        console.log(body);
+    var anotherURL;
+    var link_id = allComments[0].data.link_id;
+    allComments.forEach(({ data: { body, children }}) => {
         if (body != undefined) {
             var s = body.toLowerCase();
             for (var i = 0; i<bull.length; i++) {
@@ -68,7 +68,14 @@ const comments = async response => {
                 else if (s.includes(bear[i])) neg++;
             }
         }
+        /*else if (children != undefined) {
+            anotherURL = `http://api.reddit.com/api/morechildren?api_type=json&children=${children.join("%")}&link_id=${link_id}&limit=500`;
+        }*/
     })
+
+    /*const thread2JSON = await anotherURL.json();
+    console.log(thread2JSON);*/
+
     var sum = pos/(pos+neg) * 100;
     if (sum >= 50) alert("You're bullish: " + sum);
     else ("You're bearish: " + sum);

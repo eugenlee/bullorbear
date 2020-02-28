@@ -7,6 +7,21 @@
         <title>WSB Predictor</title>
         <link rel="stylesheet" type=text/css media="screen" href="style.css">
         <script src=script.js defer></script>
+        <script>
+        /*"use strict";
+        var speed = {
+        'trigger': '#speed-compare',
+        'target': '.modal_content .speedometer' };
+        $(function () {
+            $(speed.trigger).on('click', function () {
+                setTimeout(function () {
+                $(speed.target).each(function () {
+                    $(this).addClass('play');
+                });
+                }, 1000);
+            });
+        });*/
+        </script>
     </head>
 
     <body>
@@ -40,10 +55,28 @@
 
                 </div>  
             </div>
-            
-            <div id="results-container">
-            </div>
-        </div>
 
+            <div id="results-container">
+                    <div class="percent-16">
+                        <div class="speedometer play">
+                        <div class="dial">
+                            <div class="bar">
+                            <div class="half-circle half-circle-bg"></div>
+                            <div class="half-circle half-circle-speed animated"></div>
+                            <div class="half-circle half-circle-cover"></div>
+                            </div>
+                            <div class="needle animated">
+                            <div class="inner">
+                                <div class="top"></div>
+                                <div class="bottom"></div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+        
     </body>
 </html>
