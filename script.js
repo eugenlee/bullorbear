@@ -8,7 +8,6 @@ var threads = [];
 var rdate;
 const bull = ["call","buy","print","pump","bull"];
 const bear = ["put","sell","short","shit","bear"];
-alert('hi');
 
 const handleSubmit = e => {
     e.preventDefault();
