@@ -78,7 +78,7 @@ const comments = async response => {
 
     var sum = pos/(pos+neg) * 100;
     if (sum >= 50) alert("You're bullish: " + sum);
-    else ("You're bearish: " + sum);
+    else alert("You're bearish: " + sum);
 }
 
 // parse more comments
