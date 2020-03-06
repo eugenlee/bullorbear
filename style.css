@@ -46,7 +46,7 @@ a:hover {
     color: cornflowerblue;
 }
 
-@media only screen and (max-width: 768px) { 
+@media only screen and (max-width: 500px) { 
 /* For mobile phones: */
   [class*="container-fluid"] {
       width: 60%;
