@@ -45,6 +45,13 @@ a:visited {
 a:hover {
     color: cornflowerblue;
 }
+
+@media only screen and (max-width: 768px) { 
+/* For mobile phones: */
+  [class*="container-fluid"] {
+      width: 60%;
+  }
+}  
 /*
 .wrapper {
     position: absolute;
