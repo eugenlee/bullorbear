@@ -78,8 +78,16 @@ const comments = async response => {
     console.log(thread2JSON);*/
 
     var sum = pos/(pos+neg) * 100;
+    var f = Math.floor(sum);
+    var deg = Math.floor( (sum/100) * 180 )
+
     if (sum >= 50) alert("You're bullish: " + sum);
     else alert("You're bearish: " + sum);
+
+    var tmp= document.getElementById('percent');
+    tmp.textContent = f;
+
+    document.documentElement.style.setProperty('--perc', deg);
 }
 
 // parse more comments

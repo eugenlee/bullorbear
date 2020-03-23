@@ -7,21 +7,6 @@
         <title>WSB Predictor</title>
         <link rel="stylesheet" type=text/css media="screen" href="style.css">
         <script src=script.js defer></script>
-        <script>
-        /*"use strict";
-        var speed = {
-        'trigger': '#speed-compare',
-        'target': '.modal_content .speedometer' };
-        $(function () {
-            $(speed.trigger).on('click', function () {
-                setTimeout(function () {
-                $(speed.target).each(function () {
-                    $(this).addClass('play');
-                });
-                }, 1000);
-            });
-        });*/
-        </script>
     </head>
 
     <body>
@@ -65,23 +50,15 @@
             </div>
 
             <div id="results-container">
-                    <div class="percent-16">
-                        <div class="speedometer play">
-                        <div class="dial">
-                            <div class="bar">
-                            <div class="half-circle half-circle-bg"></div>
-                            <div class="half-circle half-circle-speed animated"></div>
-                            <div class="half-circle half-circle-cover"></div>
-                            </div>
-                            <div class="needle animated">
-                            <div class="inner">
-                                <div class="top"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                <div class="sc-gauge">
+                    <div class="sc-background">
+                      <div class="sc-percentage"></div>
+                      <div class="sc-mask"></div>
+                      <span id="percent" class="sc-value"></span>
                     </div>
+                    <span class="sc-min">0</span>
+                    <span class="sc-max">100</span>
+                </div>
             </div>
 
         </div>
