@@ -5,4 +5,3 @@ In February 2020, COVID-19 began to proliferate worldwide. Consequently, market 
 *Inputted date must be for a **TRADING DAY**, typically M-F and excludes most holidays.
 *Format is `MONTH DAY, YYYY`, e.g. March 01, 2020
 *This tool is not indicative of true market behavior and should not be used for financial decisions. 
-
