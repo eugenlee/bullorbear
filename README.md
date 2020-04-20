@@ -1,4 +1,4 @@
-# [Bullish or Bearish?](eugenlee.github.io)
+# [Bullish or Bearish?](https://eugenlee.github.io/)
 
 In February 2020, COVID-19 began to proliferate worldwide. Consequently, market volatility resulted in historic upward and downard movements. Through a popular trading forum on the internet, I thought it would be neat to quantify the current commenters' market biases. By searching keywords, I was able to calculate a simple ratio that represents either bullish (bulls strike upward with their horns; positive) or bearish (bears strike downward with their paws; negative) market sentiment. By using the thread posted on the current day (Daily Discussion Thread) or the next day (What Are Your Moves Tomorrow), the code parses through the last few hundred comments to determine a ratio.
 
