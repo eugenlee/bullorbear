@@ -6,7 +6,7 @@ var responses = [];
 var threads = [];
 
 var rdate;
-const bull = ["call","buy","print","pump","bull"];
+const bull = ["calls","buy","print","pump","bull"];
 const bear = ["put","sell","short","shit","bear"];
 
 const handleSubmit = e => {
