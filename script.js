@@ -7,7 +7,7 @@ var threads = [];
 
 var rdate;
 const bull = ["calls","buy","print","pump","bull"];
-const bear = ["put","sell","short","shit","bear"];
+const bear = ["puts","sell","short","shit","bear"];
 
 const handleSubmit = e => {
     e.preventDefault();
