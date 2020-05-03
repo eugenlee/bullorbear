@@ -7,48 +7,41 @@
         <title>WSB Predictor</title>
         <link rel="stylesheet" type=text/css media="screen" href="style.css">
         <script src=script.js defer></script>
-        <script>
-        /*"use strict";
-        var speed = {
-        'trigger': '#speed-compare',
-        'target': '.modal_content .speedometer' };
-        $(function () {
-            $(speed.trigger).on('click', function () {
-                setTimeout(function () {
-                $(speed.target).each(function () {
-                    $(this).addClass('play');
-                });
-                }, 1000);
-            });
-        });*/
-        </script>
     </head>
 
     <body>
 
         <div class= "container-fluid">
-            <div class="col-5 col-md-5 col-sm-12 centered">
+            <div class="col-12 col-md-5 col-lg-5 centered">
                 <div id="first">
                     <div class="col">
                         <span id="main_title">
                             <h1>Bullish or Bearish?</h1>
                         </span>
                         <span id="caption">
-                            <p>Using Reddit's API, app will find Bullish ratio in the Daily Discussions of 
+                            <p>Using Reddit, app will find Bullish ratio in the Daily Discussions or Moves Tomorrow threads of 
                                 <a href="https://www.reddit.com/r/wallstreetbets/">r/wallstreetbets</a> </p>
                         </span>
                         <span id="intro">
-                            <p>Enter a market day within the last week, Format: Month Day, Year - e.g. February 17, 2020. Please wait ~5 seconds for the prediction!</p>
+                            <p>Enter yesterday, today or tomorrow's market day, Format: Month Day, Year - e.g. March 01, 2020. Please wait ~5 seconds for the prediction!</p>
                         </span>
                     </div>
 
                     <form class="col-12" id="search">
+
+                        <div class="form-row justify-content-center">
+                            <select id="drop" name="drop">
+                                <option value="Daily Discussion Thread -">Daily Discussion Thread</option>
+                                <option value="What Are Your Moves Tomorrow,">What Are Your Moves Tomorrow</option>
+                            </select>
+                        </div>
+
                         <div class="form-row justify-content-center">
                             <div class="mt-4 col-sm-6 col-md-4 col-lg-6">
                                 <input type="text" id="subdate" class="form-control" placeholder = "Enter: Month Day, Year">
                             </div>
                             <div class="col mt-4 col-sm-auto">
-                                <button type="submit" class="btn btn-primary">Ratio</button>
+                                <button type="submit" class="btn btn-primary centered float-right">Ratio</button>
                             </div>
                         </div>
                     </form>
@@ -57,23 +50,15 @@
             </div>
 
             <div id="results-container">
-                    <div class="percent-16">
-                        <div class="speedometer play">
-                        <div class="dial">
-                            <div class="bar">
-                            <div class="half-circle half-circle-bg"></div>
-                            <div class="half-circle half-circle-speed animated"></div>
-                            <div class="half-circle half-circle-cover"></div>
-                            </div>
-                            <div class="needle animated">
-                            <div class="inner">
-                                <div class="top"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                <div class="sc-gauge">
+                    <div class="sc-background">
+                      <div class="sc-percentage"></div>
+                      <div class="sc-mask"></div>
+                      <span id="percent" class="sc-value"></span>
                     </div>
+                    <span class="sc-min">0</span>
+                    <span class="sc-max">100</span>
+                </div>
             </div>
 
         </div>

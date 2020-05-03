@@ -40,8 +40,9 @@ const comments = async response => {
         allPosts.push(...response.data.children);
     })
     responses = [];
+    var type = document.getElementById('drop').value;
     allPosts.forEach(({ data: { title, url }}) => {
-        if (title.includes(`Daily Discussion Thread - ${rdate}`)) {
+        if (title.includes(`${type} ${rdate}`)) {
             theUrl = `${url}.json?limit=500`;
         }
     })
@@ -77,8 +78,16 @@ const comments = async response => {
     console.log(thread2JSON);*/
 
     var sum = pos/(pos+neg) * 100;
+    var f = Math.floor(sum);
+    var deg = Math.floor( (sum/100) * 180 )
+
     if (sum >= 50) alert("You're bullish: " + sum);
     else alert("You're bearish: " + sum);
+
+    var tmp= document.getElementById('percent');
+    tmp.textContent = f;
+
+    document.documentElement.style.setProperty('--perc', deg);
 }
 
 // parse more comments
